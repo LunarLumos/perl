@@ -1,0 +1,131 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# 1. Creating an array
+my @fruits = ('apple', 'banana', 'orange');
+print "Initial array: @fruits\n";  # Output: apple banana orange
+
+# 2. Accessing elements
+print "First fruit: $fruits[0]\n";  # Output: apple
+print "Second fruit: $fruits[1]\n";  # Output: banana
+
+# 3. Modifying elements
+$fruits[1] = 'blueberry';
+print "After modification: @fruits\n";  # Output: apple blueberry orange
+
+# 4. Adding elements
+push(@fruits, 'grape');  # Add to the end
+print "After push: @fruits\n";  # Output: apple blueberry orange grape
+
+unshift(@fruits, 'kiwi');  # Add to the beginning
+print "After unshift: @fruits\n";  # Output: kiwi apple blueberry orange grape
+
+# 5. Removing elements
+my $removed_fruit = pop(@fruits);  # Remove from the end
+print "After pop: @fruits\n";  # Output: kiwi apple blueberry orange
+print "Removed fruit: $removed_fruit\n";  # Output: grape
+
+$removed_fruit = shift(@fruits);  # Remove from the beginning
+print "After shift: @fruits\n";  # Output: apple blueberry orange
+print "Removed fruit: $removed_fruit\n";  # Output: kiwi
+
+# 6. Slicing arrays (extracting a sublist)
+my @citrus = @fruits[1, 2];
+print "Sliced array (citrus): @citrus\n";  # Output: blueberry orange
+
+# 7. Array length
+my $length = scalar @fruits;
+print "Length of fruits array: $length\n";  # Output: 3
+
+# 8. Sorting arrays
+my @sorted_fruits = sort @fruits;
+print "Sorted array: @sorted_fruits\n";  # Output: apple blueberry orange
+
+# 9. Reversing arrays
+my @reversed_fruits = reverse @fruits;
+print "Reversed array: @reversed_fruits\n";  # Output: orange blueberry apple
+
+# 10. Splicing arrays (removing/replacing elements)
+splice(@fruits, 1, 1, 'strawberry', 'lemon');  # Replace one element at index 1 with two new ones
+print "After splice: @fruits\n";  # Output: apple strawberry lemon orange
+
+# 11. Joining arrays into a string
+my $fruit_string = join(", ", @fruits);
+print "Joined string: $fruit_string\n";  # Output: apple, strawberry, lemon, orange
+
+# 12. Splitting a string into an array
+my $new_fruits = "peach, plum, pear";
+my @split_fruits = split(", ", $new_fruits);
+print "Split array: @split_fruits\n";  # Output: peach plum pear
+
+# 13. Combining arrays (merging two arrays)
+my @more_fruits = ('mango', 'papaya');
+my @combined_fruits = (@fruits, @more_fruits);
+print "Combined array: @combined_fruits\n";  # Output: apple strawberry lemon orange mango papaya
+
+# 14. Iterating over arrays
+print "Iterating over fruits:\n";
+foreach my $fruit (@fruits) {
+    print "$fruit\n";
+}
+
+# 15. Multidimensional arrays (arrays of arrays)
+my @nested_fruits = (
+    ['apple', 'banana'],
+    ['orange', 'kiwi']
+);
+
+print "First fruit in first array: $nested_fruits[0][0]\n";  # Output: apple
+print "Second fruit in second array: $nested_fruits[1][1]\n";  # Output: kiwi
+
+# 16. Array references (creating a reference to an array)
+my $fruits_ref = \@fruits;
+print "Reference to fruits array: @$fruits_ref\n";  # Output: apple strawberry lemon orange
+
+# 17. Using map (transforming each element in the array)
+my @uppercased_fruits = map { uc } @fruits;
+print "Uppercased fruits: @uppercased_fruits\n";  # Output: APPLE STRAWBERRY LEMON ORANGE
+
+# 18. Using grep (filtering elements in the array)
+my @long_fruits = grep { length($_) > 5 } @fruits;
+print "Long-named fruits: @long_fruits\n";  # Output: strawberry orange
+
+# 19. Array slices (accessing multiple elements at once)
+my @selected_fruits = @fruits[0, 2];
+print "Selected fruits (slice): @selected_fruits\n";  # Output: apple lemon
+
+# 20. Advanced Splicing (removing elements without replacement)
+my @removed_elements = splice(@fruits, 1, 2);  # Remove two elements starting from index 1
+print "After advanced splice: @fruits\n";  # Output: apple orange
+print "Removed elements: @removed_elements\n";  # Output: strawberry lemon
+
+# 21. Flattening multidimensional arrays (converting an array of arrays into a single array)
+my @flattened = map { @$_ } @nested_fruits;
+print "Flattened array: @flattened\n";  # Output: apple banana orange kiwi
+
+# 22. Anonymous arrays (arrays created without being stored in a named variable)
+my $anon_array = [ 'cherry', 'peach' ];
+print "Anonymous array: @$anon_array\n";  # Output: cherry peach
+
+# 23. Advanced iteration with index (using each)
+print "Iterating with index:\n";
+while (my ($index, $fruit) = each @fruits) {
+    print "Index $index: $fruit\n";
+}
+
+# 24. Reducing arrays (combining elements using a binary operation)
+use List::Util qw(reduce);
+my $total_length = reduce { $a + $b } map { length } @fruits;
+print "Total length of fruit names: $total_length\n";  # Output: 10
+
+# 25. Using a stack or queue with arrays
+# Stack operations (LIFO - Last In, First Out)
+push(@fruits, 'fig');
+print "Stack - After push: @fruits\n";  # Output: apple orange fig
+print "Stack - Popped element: " . pop(@fruits) . "\n";  # Output: fig
+
+# Queue operations (FIFO - First In, First Out)
+push(@fruits, 'grapefruit');
+print "Queue - After push: @fruits\n";  # Output: apple orange grapefruit
+print "Queue - Shifted element: " . shift(@fruits) . "\n";  # Output: apple
