@@ -1,0 +1,110 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# 1. For loop
+print "For loop:\n";
+for (my $i = 0; $i < 5; $i++) {
+    print "Iteration $i\n";  # Output: Iteration 0 to Iteration 4
+}
+
+# 2. While loop
+print "\nWhile loop:\n";
+my $count = 0;
+while ($count < 5) {
+    print "Count is $count\n";  # Output: Count is 0 to Count is 4
+    $count++;
+}
+
+# 3. Until loop (Perl's version of 'while not')
+print "\nUntil loop:\n";
+$count = 0;
+until ($count >= 5) {
+    print "Count is $count\n";  # Output: Count is 0 to Count is 4
+    $count++;
+}
+
+# 4. Do-while loop (executed at least once)
+print "\nDo-while loop:\n";
+$count = 0;
+do {
+    print "Count is $count\n";  # Output: Count is 0 to Count is 4
+    $count++;
+} while ($count < 5);
+
+# 5. Foreach loop (Iterating over an array)
+print "\nForeach loop:\n";
+my @fruits = ('apple', 'banana', 'cherry');
+foreach my $fruit (@fruits) {
+    print "Fruit: $fruit\n";  # Output: apple banana cherry
+}
+
+# 6. Nested loops (loop inside another loop)
+print "\nNested loops:\n";
+for (my $i = 0; $i < 2; $i++) {
+    for (my $j = 0; $j < 3; $j++) {
+        print "Outer loop $i, Inner loop $j\n";  # Output: Outer loop 0, Inner loop 0 to Outer loop 1, Inner loop 2
+    }
+}
+
+# 7. Loop control with next (similar to 'continue' in other languages)
+print "\nUsing next (skip iteration):\n";
+for (my $i = 0; $i < 5; $i++) {
+    next if $i == 2;  # Skip the iteration when $i is 2
+    print "Iteration $i\n";  # Output: Iteration 0, 1, 3, 4
+}
+
+# 8. Loop control with last (similar to 'break' in other languages)
+print "\nUsing last (break loop):\n";
+for (my $i = 0; $i < 5; $i++) {
+    last if $i == 3;  # Break the loop when $i is 3
+    print "Iteration $i\n";  # Output: Iteration 0, 1, 2
+}
+
+# 9. Loop control with redo (restarts the current iteration)
+print "\nUsing redo (restart iteration):\n";
+$count = 0;
+for (my $i = 0; $i < 5; $i++) {
+    $count++;
+    print "Iteration $i\n";  # Output: Iteration 0 (twice), Iteration 1 to 4
+    redo if $i == 0 && $count < 2;  # Redo the first iteration
+}
+
+# 10. Infinite loop (careful with this!)
+# Uncomment the following code to test it, but remember it will run indefinitely.
+# print "\nInfinite loop:\n";
+# while (1) {
+#     print "This will run forever!\n";
+# }
+
+# 11. Looping through a hash using each
+print "\nLooping through a hash using each:\n";
+my %hash = ('apple' => 'red', 'banana' => 'yellow', 'cherry' => 'red');
+while (my ($key, $value) = each %hash) {
+    print "$key is $value\n";  # Output: apple is red, banana is yellow, cherry is red
+}
+
+# 12. Using map to loop and transform an array
+print "\nUsing map to transform an array:\n";
+my @upper_fruits = map { uc } @fruits;
+print "Uppercased fruits: @upper_fruits\n";  # Output: APPLE BANANA CHERRY
+
+# 13. Using grep to loop and filter an array
+print "\nUsing grep to filter an array:\n";
+my @long_fruits = grep { length($_) > 5 } @fruits;
+print "Long-named fruits: @long_fruits\n";  # Output: banana cherry
+
+# 14. For loop with a range
+print "\nFor loop with a range:\n";
+for my $num (1..5) {
+    print "Number: $num\n";  # Output: Number: 1 to Number: 5
+}
+
+# 15. Using a labeled loop (to control nested loops)
+print "\nUsing a labeled loop:\n";
+OUTER_LOOP: for my $i (0..2) {
+    INNER_LOOP: for my $j (0..2) {
+        print "i=$i, j=$j\n";
+        last OUTER_LOOP if $i == 1 && $j == 1;  # Break out of both loops
+    }
+}
