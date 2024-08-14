@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Prompt the user for their name
+print "Enter your name: ";
+my $name = <STDIN>;  # Taking input from the user
+chomp($name);        # Removing the newline character from the input
+
+# Prompt the user for their age
+print "Enter your age: ";
+my $age = <STDIN>;  # Taking input from the user
+chomp($age);        # Removing the newline character from the input
+
+# Display the input back to the user
+print "Hello, $name! You are $age years old.\n";
