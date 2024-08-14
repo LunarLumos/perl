@@ -1,0 +1,116 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# 1. Creating a hash
+my %fruit_colors = (
+    apple  => 'red',
+    banana => 'yellow',
+    grape  => 'purple',
+);
+print "Initial hash: apple=$fruit_colors{apple}, banana=$fruit_colors{banana}, grape=$fruit_colors{grape}\n";
+
+# 2. Accessing hash elements
+print "Color of apple: $fruit_colors{apple}\n";   # Output: red
+print "Color of banana: $fruit_colors{banana}\n"; # Output: yellow
+
+# 3. Modifying hash elements
+$fruit_colors{banana} = 'green';
+print "After modification: banana=$fruit_colors{banana}\n"; # Output: green
+
+# 4. Adding new key-value pairs
+$fruit_colors{orange} = 'orange';
+print "After adding orange: orange=$fruit_colors{orange}\n"; # Output: orange
+
+# 5. Deleting a key-value pair
+delete $fruit_colors{grape};
+print "After deleting grape: " . (exists $fruit_colors{grape} ? "exists" : "does not exist") . "\n"; # Output: does not exist
+
+# 6. Checking existence of a key
+if (exists $fruit_colors{apple}) {
+    print "Apple exists in the hash\n"; # Output: Apple exists in the hash
+}
+
+# 7. Hash size (number of key-value pairs)
+my $size = scalar keys %fruit_colors;
+print "Number of key-value pairs in hash: $size\n"; # Output: 3
+
+# 8. Iterating over a hash
+print "Iterating over hash:\n";
+while (my ($fruit, $color) = each %fruit_colors) {
+    print "$fruit is $color\n";  # Output: apple is red, banana is green, orange is orange
+}
+
+# 9. Extracting keys and values
+my @keys = keys %fruit_colors;
+my @values = values %fruit_colors;
+print "Keys: @keys\n";           # Output: apple banana orange
+print "Values: @values\n";       # Output: red green orange
+
+# 10. Hash slices (accessing multiple values at once)
+my @selected_colors = @fruit_colors{'apple', 'orange'};
+print "Selected colors (apple and orange): @selected_colors\n"; # Output: red orange
+
+# 11. Merging hashes
+my %more_fruit_colors = (
+    kiwi   => 'green',
+    lemon  => 'yellow',
+);
+@fruit_colors{keys %more_fruit_colors} = values %more_fruit_colors;
+print "After merging: kiwi=$fruit_colors{kiwi}, lemon=$fruit_colors{lemon}\n"; # Output: green yellow
+
+# 12. Hash reference (creating a reference to a hash)
+my $hash_ref = \%fruit_colors;
+print "Reference to hash: apple=$hash_ref->{apple}, lemon=$hash_ref->{lemon}\n"; # Output: red yellow
+
+# 13. Anonymous hash (hash created without being stored in a named variable)
+my $anon_hash = { strawberry => 'red', blueberry => 'blue' };
+print "Anonymous hash: strawberry=$anon_hash->{strawberry}, blueberry=$anon_hash->{blueberry}\n"; # Output: red blue
+
+# 14. Hash of arrays (a hash where each value is an array reference)
+my %fruit_categories = (
+    citrus   => ['orange', 'lemon'],
+    berries  => ['strawberry', 'blueberry'],
+);
+print "First citrus fruit: $fruit_categories{citrus}->[0]\n"; # Output: orange
+print "First berry: $fruit_categories{berries}->[0]\n";       # Output: strawberry
+
+# 15. Hash of hashes (a hash where each value is another hash reference)
+my %fruit_details = (
+    apple  => { color => 'red', taste => 'sweet' },
+    lemon  => { color => 'yellow', taste => 'sour' },
+);
+print "Apple's color: $fruit_details{apple}->{color}\n"; # Output: red
+print "Lemon's taste: $fruit_details{lemon}->{taste}\n"; # Output: sour
+
+# 16. Using map with hashes (transforming a hash)
+my %uppercase_colors = map { $_ => uc $fruit_colors{$_} } keys %fruit_colors;
+print "Uppercased colors: " . join(", ", values %uppercase_colors) . "\n"; # Output: RED GREEN ORANGE YELLOW
+
+# 17. Using grep with hashes (filtering a hash)
+my %yellow_fruits = grep { $fruit_colors{$_} eq 'yellow' } keys %fruit_colors;
+print "Yellow fruits: " . join(", ", keys %yellow_fruits) . "\n"; # Output: lemon
+
+# 18. Inverting a hash (swapping keys and values)
+my %inverted_hash = reverse %fruit_colors;
+print "Inverted hash: " . join(", ", map { "$_=>$inverted_hash{$_}" } keys %inverted_hash) . "\n"; # Output: RED=>apple GREEN=>kiwi ORANGE=>orange YELLOW=>lemon
+
+# 19. Hash sorting (sorting keys or values)
+my @sorted_keys = sort keys %fruit_colors;
+print "Sorted keys: @sorted_keys\n"; # Output: apple banana lemon orange
+
+# 20. Complex keys in a hash (using a multi-part key)
+my %multi_key_hash = (
+    "apple red"  => 'juicy',
+    "banana yellow" => 'sweet',
+);
+print "Complex key (apple red): $multi_key_hash{'apple red'}\n"; # Output: juicy
+
+# 21. Accessing complex keys dynamically
+my $fruit = "banana";
+my $color = "yellow";
+print "Dynamically accessing complex key: $multi_key_hash{\"$fruit $color\"}\n"; # Output: sweet
+
+# 22. Modifying hash with splice (to simulate replacing a value at a specific position in hash keys)
+splice @sorted_keys, 1, 1, 'kiwi'; # Replaces the second key
+print "Modified keys: @sorted_keys\n"; # Output: apple kiwi lemon orange
