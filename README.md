@@ -116,16 +116,16 @@ Demonstrates basic file operations.
 - **Write to a New File**: Create and write to a new file.
 - **Read the Newly Created File**: Verify new file’s content.
 
-### 5. [**Data Structure** 📚](./Data_Structure)
+### 5. [**Data Structure** 📚]
 Covers fundamental data structures.
 
-- **Stack**:
+- [**Stack**](./stack):
   - **LIFO Principle**: Demonstrates stack operations like `push`, `pop`, and `peek`.
-- **Queue**:
+- [**Queue**](*./queue):
   - **FIFO Principle**: Demonstrates queue operations like `enqueue`, `dequeue`, and `peek`.
-- **Linked List**:
+- [**Linked List**](./linked_list):
   - **Single Linked List**: Operations include insertion, deletion, and traversal.
-- **Binary Tree**:
+- [**Binary Tree**](./binary_tree):
   - **Tree Operations**: Includes insertion, traversal (in-order, pre-order, post-order), and searching.
 
 ### 6. [**Object-Oriented Programming** 🏷️](./Object-Oriented_Programming)
