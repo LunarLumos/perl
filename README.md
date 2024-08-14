@@ -1,5 +1,3 @@
-
-
 # Programming Concepts Repository
 
 Welcome to the **Programming Concepts Repository**! This repository showcases various programming concepts with practical examples and explanations. Each folder within this repository is dedicated to a specific topic, providing insights and hands-on code samples.
@@ -47,7 +45,8 @@ The full form of Perl is **"Practical Extraction and Report Language,"** althoug
 Perl continues to be a relevant and powerful language for specific tasks, especially where text processing and system scripting are involved. Its community remains active, and it’s supported by a vast repository of modules and tools, ensuring it remains a valuable skill for developers and administrators.
 
 ## Repository Structure
-### 1. **Input** 📥
+
+### 1. [**Input** 📥](./Input)
 This folder contains Perl scripts demonstrating basic user input handling.
 
 - **Prompt for User Input**:
@@ -57,7 +56,7 @@ This folder contains Perl scripts demonstrating basic user input handling.
 - **Display User Input**:
   - Greets the user with their entered name and age.
 
-### 2. **Array** 🧩
+### 2. [**Array** 🧩](./Array)
 This folder contains Perl scripts demonstrating a variety of array operations.
 
 - **Creating an Array**: Initialize and display arrays.
@@ -86,7 +85,7 @@ This folder contains Perl scripts demonstrating a variety of array operations.
 - **Reducing Arrays**: Combine elements.
 - **Using a Stack or Queue**: Perform stack and queue operations.
 
-### 3. **Hashes** 🗝️
+### 3. [**Hashes** 🗝️](./Hashes)
 This folder contains Perl scripts for working with hashes.
 
 - **Creating a Hash**: Initialize with key-value pairs.
@@ -112,7 +111,7 @@ This folder contains Perl scripts for working with hashes.
 - **Accessing Complex Keys Dynamically**: Dynamic key access.
 - **Modifying Hash with `splice`**: Simulate value replacement.
 
-### 4. **File Handling** 📁
+### 4. [**File Handling** 📁](./File_Handling)
 This folder contains Perl scripts for basic file operations.
 
 - **Check if a File Exists**: Verify file presence using `-e`.
@@ -123,7 +122,7 @@ This folder contains Perl scripts for basic file operations.
 - **Write to a New File**: Create and write to a new file.
 - **Read the Newly Created File**: Verify new file’s content.
 
-### 5. **Data Structure** 📚
+### 5. [**Data Structure** 📚](./Data_Structure)
 This folder contains Perl scripts demonstrating fundamental data structures.
 
 - **Stack**:
@@ -135,7 +134,7 @@ This folder contains Perl scripts demonstrating fundamental data structures.
 - **Binary Tree**:
   - **Tree Operations**: Includes insertion, traversal (in-order, pre-order, post-order), and searching.
 
-### 6. **Object-Oriented Programming** 🏷️
+### 6. [**Object-Oriented Programming** 🏷️](./Object-Oriented_Programming)
 This folder showcases Perl scripts illustrating Object-Oriented Programming (OOP) principles.
 
 - **Base Class (`Animal`)**:
@@ -149,7 +148,9 @@ This folder showcases Perl scripts illustrating Object-Oriented Programming (OOP
     - **Overrides** `display_info` to include breed.
   - **`Cat`**:
     - Inherits from `Animal`.
-    - Adds `color` attribute.
+    - Adds `color` attribute
+
+.
     - **Overrides** `display_info` to include color.
   - **`Pet`**:
     - Inherits from `Animal`.
@@ -161,5 +162,6 @@ This folder showcases Perl scripts illustrating Object-Oriented Programming (OOP
 
 ---
 
-
 Thank you for visiting the repository! Happy coding!
+```
+
