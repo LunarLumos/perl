@@ -1,0 +1,30 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Node structure using a hash
+my $node1 = {
+    data => 1,
+    next => undef,
+};
+
+my $node2 = {
+    data => 2,
+    next => undef,
+};
+
+my $node3 = {
+    data => 3,
+    next => undef,
+};
+
+# Linking nodes
+$node1->{next} = $node2;
+$node2->{next} = $node3;
+
+# Traversing the linked list
+my $current_node = $node1;
+while ($current_node) {
+    print "Node data: $current_node->{data}\n";  # Output: 1, 2, 3
+    $current_node = $current_node->{next};
+}
