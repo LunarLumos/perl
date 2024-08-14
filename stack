@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Stack implementation
+my @stack;
+
+# Push elements onto the stack
+push(@stack, 10);
+push(@stack, 20);
+push(@stack, 30);
+
+# Pop elements from the stack
+my $last_element = pop(@stack);  # 30
+print "Popped: $last_element\n"; # Output: Popped: 30
+
+# Check stack content
+print "Stack: @stack\n";  # Output: Stack: 10 20
