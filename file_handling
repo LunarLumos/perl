@@ -1,0 +1,82 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Function to check if a file exists
+sub file_exists {
+    my ($filename) = @_;
+    return -e $filename;
+}
+
+# Function to prompt user input for filenames
+sub prompt_for_filename {
+    my ($operation) = @_;
+    print "Enter the filename to $operation: ";
+    my $filename = <STDIN>;
+    chomp($filename);
+    return $filename;
+}
+
+# 1. Read from a file
+my $read_filename = prompt_for_filename('read');
+if (file_exists($read_filename)) {
+    open(my $read_fh, '<', $read_filename) or die "Could not open file '$read_filename': $!";
+    print "Contents of $read_filename:\n";
+    while (my $line = <$read_fh>) {
+        chomp($line);  # Remove the newline character from the end of the line
+        print "$line\n";  # Print the line
+    }
+    close($read_fh);
+} else {
+    print "File '$read_filename' does not exist.\n";
+}
+
+# 2. Write to a file
+my $write_filename = prompt_for_filename('write to');
+open(my $write_fh, '>', $write_filename) or die "Could not open file '$write_filename': $!";
+print $write_fh "This is a new line in the file.\n";
+print $write_fh "Another line of text.\n";
+close($write_fh);
+print "Finished writing to $write_filename.\n";
+
+# 3. Append to a file
+my $append_filename = prompt_for_filename('append to');
+if (file_exists($append_filename)) {
+    open(my $append_fh, '>>', $append_filename) or die "Could not open file '$append_filename': $!";
+    print $append_fh "Appended line 1.\n";
+    print $append_fh "Appended line 2.\n";
+    close($append_fh);
+    print "Finished appending to $append_filename.\n";
+
+    # Verify by reading the file again
+    open(my $check_fh, '<', $append_filename) or die "Could not open file '$append_filename': $!";
+    print "Contents of $append_filename after appending:\n";
+    while (my $line = <$check_fh>) {
+        chomp($line);
+        print "$line\n";
+    }
+    close($check_fh);
+} else {
+    print "File '$append_filename' does not exist.\n";
+}
+
+# 4. Write to a new file
+my $new_file = prompt_for_filename('create');
+open(my $new_fh, '>', $new_file) or die "Could not open file '$new_file': $!";
+print $new_fh "Initial content of the new file.\n";
+print $new_fh "More content.\n";
+close($new_fh);
+print "Finished creating $new_file.\n";
+
+# 5. Read the newly created file
+if (file_exists($new_file)) {
+    open(my $new_check_fh, '<', $new_file) or die "Could not open file '$new_file': $!";
+    print "Contents of $new_file:\n";
+    while (my $line = <$new_check_fh>) {
+        chomp($line);
+        print "$line\n";
+    }
+    close($new_check_fh);
+} else {
+    print "File '$new_file' does not exist.\n";
+}
