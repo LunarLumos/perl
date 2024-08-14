@@ -40,7 +40,7 @@ Perl continues to be a relevant and powerful language for specific tasks, especi
 
 ## 🗂️ Repository Structure
 
-### 1. [**Input** 📥](./Input)
+### 1. [**Input** 📥](./input)
 Contains Perl scripts demonstrating basic user input handling.
 
 - **Prompt for User Input**: 
@@ -50,7 +50,7 @@ Contains Perl scripts demonstrating basic user input handling.
 - **Display User Input**: 
   - Greets the user with their entered name and age.
 
-### 2. [**Array** 🧩](./Array)
+### 2. [**Array** 🧩](./array)
 Showcases various array operations.
 
 - **Creating an Array**: Initialize and display arrays.
@@ -79,7 +79,7 @@ Showcases various array operations.
 - **Reducing Arrays**: Combine elements.
 - **Using a Stack or Queue**: Perform stack and queue operations.
 
-### 3. [**Hashes** 🗝️](./Hashes)
+### 3. [**Hashes** 🗝️](./hashes)
 Focuses on working with hashes.
 
 - **Creating a Hash**: Initialize with key-value pairs.
@@ -105,7 +105,7 @@ Focuses on working with hashes.
 - **Accessing Complex Keys Dynamically**: Dynamic key access.
 - **Modifying Hash with `splice`**: Simulate value replacement.
 
-### 4. [**File Handling** 📁](./File_Handling)
+### 4. [**File Handling** 📁](./file_handling)
 Demonstrates basic file operations.
 
 - **Check if a File Exists**: Verify file presence using `-e`.
