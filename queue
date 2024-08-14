@@ -1,0 +1,18 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Queue implementation
+my @queue;
+
+# Enqueue elements (add to the end)
+push(@queue, 'A');
+push(@queue, 'B');
+push(@queue, 'C');
+
+# Dequeue elements (remove from the front)
+my $first_element = shift(@queue);  # 'A'
+print "Dequeued: $first_element\n"; # Output: Dequeued: A
+
+# Check queue content
+print "Queue: @queue\n";  # Output: Queue: B C
