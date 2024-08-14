@@ -1,0 +1,186 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+# Define the base class 'Animal'
+package Animal;
+
+# Constructor
+sub new {
+    my ($class, %args) = @_;
+    my $self = {
+        name => $args{name} || 'Unknown',
+        age  => $args{age}  || 0,
+    };
+    bless $self, $class;
+    return $self;
+}
+
+# Method to get the name of the animal
+sub get_name {
+    my ($self) = @_;
+    return $self->{name};
+}
+
+# Method to set the name of the animal
+sub set_name {
+    my ($self, $name) = @_;
+    $self->{name} = $name;
+}
+
+# Method to get the age of the animal
+sub get_age {
+    my ($self) = @_;
+    return $self->{age};
+}
+
+# Method to set the age of the animal
+sub set_age {
+    my ($self, $age) = @_;
+    $self->{age} = $age;
+}
+
+# Method to display information about the animal
+sub display_info {
+    my ($self) = @_;
+    print "Name: " . $self->get_name() . "\n";
+    print "Age: " . $self->get_age() . "\n";
+}
+
+# Define the 'Dog' class that inherits from 'Animal'
+package Dog;
+use base 'Animal';  # Inherit from Animal
+
+# Constructor
+sub new {
+    my ($class, %args) = @_;
+    $args{breed} ||= 'Unknown';
+    my $self = $class->SUPER::new(%args);
+    $self->{breed} = $args{breed};
+    bless $self, $class;
+    return $self;
+}
+
+# Method to get the breed of the dog
+sub get_breed {
+    my ($self) = @_;
+    return $self->{breed};
+}
+
+# Method to set the breed of the dog
+sub set_breed {
+    my ($self, $breed) = @_;
+    $self->{breed} = $breed;
+}
+
+# Override display_info method to include breed
+sub display_info {
+    my ($self) = @_;
+    $self->SUPER::display_info();
+    print "Breed: " . $self->get_breed() . "\n";
+}
+
+# Define the 'Cat' class that also inherits from 'Animal'
+package Cat;
+use base 'Animal';  # Inherit from Animal
+
+# Constructor
+sub new {
+    my ($class, %args) = @_;
+    $args{color} ||= 'Unknown';
+    my $self = $class->SUPER::new(%args);
+    $self->{color} = $args{color};
+    bless $self, $class;
+    return $self;
+}
+
+# Method to get the color of the cat
+sub get_color {
+    my ($self) = @_;
+    return $self->{color};
+}
+
+# Method to set the color of the cat
+sub set_color {
+    my ($self, $color) = @_;
+    $self->{color} = $color;
+}
+
+# Override display_info method to include color
+sub display_info {
+    my ($self) = @_;
+    $self->SUPER::display_info();
+    print "Color: " . $self->get_color() . "\n";
+}
+
+# Define a subclass that demonstrates polymorphism
+package Pet;
+use base 'Animal';  # Inherit from Animal
+
+# Constructor
+sub new {
+    my ($class, %args) = @_;
+    $args{species} ||= 'Unknown';
+    my $self = $class->SUPER::new(%args);
+    $self->{species} = $args{species};
+    bless $self, $class;
+    return $self;
+}
+
+# Method to get the species of the pet
+sub get_species {
+    my ($self) = @_;
+    return $self->{species};
+}
+
+# Method to set the species of the pet
+sub set_species {
+    my ($self, $species) = @_;
+    $self->{species} = $species;
+}
+
+# Override display_info method to include species
+sub display_info {
+    my ($self) = @_;
+    $self->SUPER::display_info();
+    print "Species: " . $self->get_species() . "\n";
+}
+
+# Main script to use the classes
+package main;
+
+# Create an object of Dog
+my $dog = Dog->new(name => 'Buddy', age => 4, breed => 'Golden Retriever');
+print "Dog Information:\n";
+$dog->display_info();
+
+# Modify the dog's attributes
+$dog->set_name('Charlie');
+$dog->set_age(5);
+$dog->set_breed('Labrador');
+print "\nUpdated Dog Information:\n";
+$dog->display_info();
+
+# Create an object of Cat
+my $cat = Cat->new(name => 'Whiskers', age => 3, color => 'Black');
+print "\nCat Information:\n";
+$cat->display_info();
+
+# Modify the cat's attributes
+$cat->set_name('Shadow');
+$cat->set_age(4);
+$cat->set_color('Grey');
+print "\nUpdated Cat Information:\n";
+$cat->display_info();
+
+# Create an object of Pet
+my $pet = Pet->new(name => 'Max', age => 2, species => 'Hamster');
+print "\nPet Information:\n";
+$pet->display_info();
+
+# Modify the pet's attributes
+$pet->set_name('Sammy');
+$pet->set_age(3);
+$pet->set_species('Guinea Pig');
+print "\nUpdated Pet Information:\n";
+$pet->display_info();
