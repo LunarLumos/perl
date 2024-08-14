@@ -1,6 +1,3 @@
-Let's incorporate all the details while keeping the enhanced visual appeal. Here's the revised version:
-
----
 
 # 🐪 Perl Concepts Repository
 
