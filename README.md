@@ -121,7 +121,7 @@ Covers fundamental data structures.
 
 - [**Stack**](./stack):
   - **LIFO Principle**: Demonstrates stack operations like `push`, `pop`, and `peek`.
-- [**Queue**](*./queue):
+- [**Queue**](./queue):
   - **FIFO Principle**: Demonstrates queue operations like `enqueue`, `dequeue`, and `peek`.
 - [**Linked List**](./linked_list):
   - **Single Linked List**: Operations include insertion, deletion, and traversal.
