@@ -42,7 +42,7 @@ The full form of Perl is **"Practical Extraction and Report Language,"** althoug
 
 6. **Automation and Scripting**: Perl is highly efficient for automating repetitive tasks, allowing for the quick development of scripts that can manage system operations, data processing, and other routine tasks, significantly improving productivity.
 
-7.**Log Analysis**: Perl excels at parsing and analyzing log files, making it an invaluable tool for extracting, filtering, and reporting critical information from large volumes of log data.
+7. **Log Analysis**: Perl excels at parsing and analyzing log files, making it an invaluable tool for extracting, filtering, and reporting critical information from large volumes of log data.
 
 8. **Versatility and Extensibility**: With CPAN, Perl can be extended to perform virtually any task. Thousands of modules are available, allowing Perl to handle tasks ranging from web scraping to database management.
 
